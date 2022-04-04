@@ -55,7 +55,7 @@ appender.index_search_slowlog_rolling.name = index_search_slowlog_rolling
 appender.index_search_slowlog_rolling.fileName = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_index_search_slowlog.log
 appender.index_search_slowlog_rolling.layout.type = PatternLayout
 #appender.index_search_slowlog_rolling.layout.pattern = [%d{ISO8601}][%-5p][%-25c] %marker%.-10000m%n
-appender.index_search_slowlog_rolling.layout.pattern = {"environment" : "{{ esenvironment }}", "class" : "elasticsearch_slow_search", "service" : "elasticsearch" , "timestamp" : "%d{ISO8601}", "level" : "%-5p", "logger" : "%-25c", "message" : {% raw %}"%enc{%.-10000m}{JSON}" }%n{% endraw %}
+appender.index_search_slowlog_rolling.layout.pattern = {"environment" : "{{ logging_environment }}", "class" : "elasticsearch_slow_search", "service" : "elasticsearch" , "timestamp" : "%d{ISO8601}", "level" : "%-5p", "logger" : "%-25c", "message" : {% raw %}"%enc{%.-10000m}{JSON}" }%n{% endraw %}
 
 appender.index_search_slowlog_rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_index_search_slowlog-%d{yyyy-MM-dd}.log
 appender.index_search_slowlog_rolling.policies.type = Policies
@@ -73,7 +73,7 @@ appender.index_indexing_slowlog_rolling.name = index_indexing_slowlog_rolling
 appender.index_indexing_slowlog_rolling.fileName = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_index_indexing_slowlog.log
 appender.index_indexing_slowlog_rolling.layout.type = PatternLayout
 #appender.index_indexing_slowlog_rolling.layout.pattern = [%d{ISO8601}][%-5p][%-25c] %marker%.-10000m%n
-appender.index_indexing_slowlog_rolling.layout.pattern = {"environment" : "{{ esenvironment }}", "class" : "elasticsearch_slow_indexing", "service" : "elasticsearch" , "timestamp" : "%d{ISO8601}", "level" : "%-5p", "logger" : "%-25c", "message" : {% raw %}"%enc{%.-10000m}{JSON}" }%n{% endraw %}
+appender.index_indexing_slowlog_rolling.layout.pattern = {"environment" : "{{ logging_environment }}", "class" : "elasticsearch_slow_indexing", "service" : "elasticsearch" , "timestamp" : "%d{ISO8601}", "level" : "%-5p", "logger" : "%-25c", "message" : {% raw %}"%enc{%.-10000m}{JSON}" }%n{% endraw %}
 
 appender.index_indexing_slowlog_rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_index_indexing_slowlog-%d{yyyy-MM-dd}.log
 appender.index_indexing_slowlog_rolling.policies.type = Policies
